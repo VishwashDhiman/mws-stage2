@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Adding meta tag which helps to make the page responsive -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#317EFB"/>
+  <meta name="Description" content="Restaurant Details">
+
+  <!-- This is to set compatability with Internet Explorer -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <!-- Added manifest to make pwa -->
+  <link rel="manifest" href="/manifest.json">
+
+  <title>Restaurant Reviews</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <h1><a href="/">Restaurant Reviews</a></h1>
+    </nav>
+  </header>
+
+  <main id="maincontent" role="main">
+    <section id="map-container">
+      <div id="map" tabIndex="-1" role="application" aria-hidden="true" aria-description="map-help" aria-label="location pointer"></div>
+      <div hidden id="map-help">A map that shows all filtered restaurants</div>
+    </section>
+    <section>
+      <div class="filter-options">
+        <h2>Filter Results</h2>
+        <select id="neighborhoods-select" name="neighborhoods"  aria-label="neighborhoods-list" onchange="updateRestaurants()">
+          <option value="all">All Neighborhoods</option>
+        </select>
+        <select id="cuisines-select" name="cuisines"aria-label="cuisines-list" onchange="updateRestaurants()">
+          <option value="all">All Cuisines</option>
+        </select>
+      </div>
+      <ul id="restaurants-list"></ul>
+    </section>
+  </main>
+<!-- Adding indexedDB -->
+  <script type="application/javascript" charset="utf-8" src="js/indexedDB.js"></script>
+<!-- Adding dbhelper -->
+  <script type="application/javascript" charset="utf-8" src="js/dbhelper.js"></script>
+  <script type="application/javascript" charset="utf-8" src="js/main.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrFw3shm5DrBvePBu7LHWOFD0RaX2HAKc&libraries=places&callback=initMap"></script>
+
+
+  <footer id="footer">
+    Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
+  </footer>
+
+</body>
+
+</html>
